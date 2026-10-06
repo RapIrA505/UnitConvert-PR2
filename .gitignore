@@ -1,6 +1,7 @@
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.coverage
 .venv/
-mutation_work/
+__pycache__/
+.pytest_cache/
+.coverage*
+htmlcov/
+*.sqlite
+cosmic*.toml
