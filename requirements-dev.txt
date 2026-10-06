@@ -1,0 +1,3 @@
+pytest==9.1.1
+coverage==7.16.2
+cosmic-ray==8.7.0

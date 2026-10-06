@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-06",
+  "platform": "Windows 11 Pro 10.0.26200 x64, Python 3.12.14, Tkinter",
+  "method": "Запуск app.py и проверка интерфейса средствами управления окнами Windows",
+  "scope": "Две контрольные проверки GUI; не включены в показатели модульного покрытия core.py",
+  "cases": [
+    {"id": "GUI-01", "action": "Режим Цельсий в Фаренгейт; ввод 100; Enter", "expected": "Результат: 212 °F", "actual": "Результат: 212 °F", "status": "PASS", "screenshot": "screenshots/ui_conversion.png"},
+    {"id": "GUI-02", "action": "Ввод 100ф; Enter", "expected": "Ошибка: введите корректное число.", "actual": "Ошибка: введите корректное число.", "status": "PASS", "screenshot": "screenshots/ui_invalid.png"}
+  ]
+}

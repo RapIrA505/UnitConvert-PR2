@@ -1,0 +1,103 @@
+{
+  "stage": "initial",
+  "total": 170,
+  "completed": 170,
+  "killed": 161,
+  "survived": 9,
+  "incompetent": 0,
+  "core_sha256": "f16b556ead0ed15afcb0a9dcb41bf04fef56d7d52644e742b69c2a4311ad1f86",
+  "mutation_score_percent": 94.70588235294117,
+  "survivors": [
+    {
+      "id": "256af7fc6c8147b497ac1bf6e6d68b0d",
+      "operator": "core/ReplaceBinaryOperator_Div_FloorDiv",
+      "line": 71,
+      "occurrence": 3,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -68,5 +68,5 @@\n \n def pounds_to_kg(value):\n     \"\"\"Pounds -> kilograms; pounds >= 0.\"\"\"\n-    return _finite_result(_non_negative(value) / POUNDS_PER_KG)\n+    return _finite_result(_non_negative(value) // POUNDS_PER_KG)\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.20s\r\n"
+    },
+    {
+      "id": "ce437c3b831f45c193d2acf99f9f09db",
+      "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+      "line": 26,
+      "occurrence": 0,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -23,7 +23,7 @@\n def _non_negative(value):\n     \"\"\"Lengths and masses cannot be negative.\"\"\"\n     result = _number(value)\n-    if result < 0:\n+    if result <= 0:\n         raise ValueError(\"Длина и масса не могут быть отрицательными.\")\n     return result\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.17s\r\n"
+    },
+    {
+      "id": "753b8ca7374947b0bb8011a4a91d3a4f",
+      "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+      "line": 41,
+      "occurrence": 1,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -38,7 +38,7 @@\n def celsius_to_fahrenheit(value):\n     \"\"\"Degrees Celsius -> Fahrenheit; Celsius >= -273.15.\"\"\"\n     value = _number(value)\n-    if value < -273.15:\n+    if value <= -273.15:\n         raise ValueError(\"Температура ниже абсолютного нуля.\")\n     return _finite_result(value * (9 / 5) + 32)\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.15s\r\n"
+    },
+    {
+      "id": "bac5db90a7fc46aeaa2b1af7456fe5b9",
+      "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+      "line": 49,
+      "occurrence": 2,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -46,7 +46,7 @@\n def fahrenheit_to_celsius(value):\n     \"\"\"Degrees Fahrenheit -> Celsius; Fahrenheit >= -459.67.\"\"\"\n     value = _number(value)\n-    if value < -459.67:\n+    if value <= -459.67:\n         raise ValueError(\"Температура ниже абсолютного нуля.\")\n     return _finite_result((value - 32) * (5 / 9))\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.20s\r\n"
+    },
+    {
+      "id": "b1a163ea2f81401aac7be12311afbb52",
+      "operator": "core/ExceptionReplacer",
+      "line": 16,
+      "occurrence": 0,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -13,7 +13,7 @@\n         raise TypeError(\"Введите число, а не строку или логическое значение.\")\n     try:\n         result = float(value)\n-    except OverflowError as exc:\n+    except CosmicRayTestingException as exc:\n         raise ValueError(\"Число слишком велико.\") from exc\n     if not math.isfinite(result):\n         raise ValueError(\"Число должно быть конечным.\")",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.18s\r\n"
+    },
+    {
+      "id": "35cbac5605f743f788a27fe6507402de",
+      "operator": "core/NumberReplacer",
+      "line": 41,
+      "occurrence": 6,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -38,7 +38,7 @@\n def celsius_to_fahrenheit(value):\n     \"\"\"Degrees Celsius -> Fahrenheit; Celsius >= -273.15.\"\"\"\n     value = _number(value)\n-    if value < -273.15:\n+    if value < - 274.15:\n         raise ValueError(\"Температура ниже абсолютного нуля.\")\n     return _finite_result(value * (9 / 5) + 32)\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.16s\r\n"
+    },
+    {
+      "id": "3df26eeebc834b06b8f53a753b1690a9",
+      "operator": "core/NumberReplacer",
+      "line": 41,
+      "occurrence": 7,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -38,7 +38,7 @@\n def celsius_to_fahrenheit(value):\n     \"\"\"Degrees Celsius -> Fahrenheit; Celsius >= -273.15.\"\"\"\n     value = _number(value)\n-    if value < -273.15:\n+    if value < - 272.15:\n         raise ValueError(\"Температура ниже абсолютного нуля.\")\n     return _finite_result(value * (9 / 5) + 32)\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.07s\r\n"
+    },
+    {
+      "id": "45c0a2580523411ab8e24b6b7c42af91",
+      "operator": "core/NumberReplacer",
+      "line": 49,
+      "occurrence": 14,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -46,7 +46,7 @@\n def fahrenheit_to_celsius(value):\n     \"\"\"Degrees Fahrenheit -> Celsius; Fahrenheit >= -459.67.\"\"\"\n     value = _number(value)\n-    if value < -459.67:\n+    if value < - 460.67:\n         raise ValueError(\"Температура ниже абсолютного нуля.\")\n     return _finite_result((value - 32) * (5 / 9))\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.09s\r\n"
+    },
+    {
+      "id": "5afb1bb0bb6a422ca2049e2d01b1eea9",
+      "operator": "core/NumberReplacer",
+      "line": 49,
+      "occurrence": 15,
+      "outcome": "survived",
+      "worker": "normal",
+      "diff": "--- mutation diff ---\n--- a/core.py\n+++ b/core.py\n@@ -46,7 +46,7 @@\n def fahrenheit_to_celsius(value):\n     \"\"\"Degrees Fahrenheit -> Celsius; Fahrenheit >= -459.67.\"\"\"\n     value = _number(value)\n-    if value < -459.67:\n+    if value < - 458.67:\n         raise ValueError(\"Температура ниже абсолютного нуля.\")\n     return _finite_result((value - 32) * (5 / 9))\n ",
+      "output": "........................                                                 [100%]\r\n24 passed in 0.21s\r\n"
+    }
+  ],
+  "initial_tests_sha256": "8ec0c8554cbac6ca0f68180465eb7a83ed8ef1156e43525eff70c051af9be2bc"
+}
